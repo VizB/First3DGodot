@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://chreeq3pgh4ir"]
+
+[ext_resource type="Texture2D" uid="uid://b5vbnbyps1dw0" path="res://Assets/dark_grid.png" id="1_gijpf"]
+[ext_resource type="PackedScene" uid="uid://2bhnh15gjto0" path="res://Scenes/Player.tscn" id="2_yv7e6"]
+[ext_resource type="Script" path="res://Scripts/Label.gd" id="3_lv0n6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbqop"]
+albedo_texture = ExtResource("1_gijpf")
+uv1_triplanar = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ayi1b"]
+sky_top_color = Color(0.27451, 0.45098, 0.701961, 1)
+sky_horizon_color = Color(0.6, 0.760784, 0.894118, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_1npyb"]
+sky_material = SubResource("ProceduralSkyMaterial_ayi1b")
+
+[sub_resource type="Environment" id="Environment_cabdf"]
+background_mode = 2
+sky = SubResource("Sky_1npyb")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="World" type="Node3D"]
+
+[node name="Stage" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_qbqop")
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_cabdf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_yv7e6")]
+_mouseSensitivity = 0.1
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("3_lv0n6")

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "QYS2RuCV0VxfPvyrQWs9cAkPF6IAIXhAz89PTvwQXkWUF54uKFzSYA/9lh7Tb0OFelSaTWV2Uu1FJKIwg2CSXQ==",
+  "success": true,
+  "projectFilePath": "D:\\Projects\\Godot\\First3DGodot\\First3DGodot.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Vismay\\.nuget\\packages\\godot.sourcegenerators\\4.1.3\\godot.sourcegenerators.4.1.3.nupkg.sha512",
+    "C:\\Users\\Vismay\\.nuget\\packages\\godotsharp\\4.1.3\\godotsharp.4.1.3.nupkg.sha512",
+    "C:\\Users\\Vismay\\.nuget\\packages\\godotsharpeditor\\4.1.3\\godotsharpeditor.4.1.3.nupkg.sha512"
+  ],
+  "logs": []
+}

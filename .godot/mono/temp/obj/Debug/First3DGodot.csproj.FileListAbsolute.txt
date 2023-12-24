@@ -1,0 +1,17 @@
+D:\Projects\Godot\First3DGodot\.godot\mono\temp\bin\Debug\First3DGodot.deps.json
+D:\Projects\Godot\First3DGodot\.godot\mono\temp\bin\Debug\First3DGodot.runtimeconfig.json
+D:\Projects\Godot\First3DGodot\.godot\mono\temp\bin\Debug\First3DGodot.dll
+D:\Projects\Godot\First3DGodot\.godot\mono\temp\bin\Debug\First3DGodot.pdb
+D:\Projects\Godot\First3DGodot\.godot\mono\temp\bin\Debug\GodotSharp.dll
+D:\Projects\Godot\First3DGodot\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+D:\Projects\Godot\First3DGodot\.godot\mono\temp\obj\Debug\First3DGodot.csproj.AssemblyReference.cache
+D:\Projects\Godot\First3DGodot\.godot\mono\temp\obj\Debug\First3DGodot.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Godot\First3DGodot\.godot\mono\temp\obj\Debug\First3DGodot.AssemblyInfoInputs.cache
+D:\Projects\Godot\First3DGodot\.godot\mono\temp\obj\Debug\First3DGodot.AssemblyInfo.cs
+D:\Projects\Godot\First3DGodot\.godot\mono\temp\obj\Debug\First3DGodot.csproj.CoreCompileInputs.cache
+D:\Projects\Godot\First3DGodot\.godot\mono\temp\obj\Debug\First3DGodot.csproj.CopyComplete
+D:\Projects\Godot\First3DGodot\.godot\mono\temp\obj\Debug\First3DGodot.dll
+D:\Projects\Godot\First3DGodot\.godot\mono\temp\obj\Debug\refint\First3DGodot.dll
+D:\Projects\Godot\First3DGodot\.godot\mono\temp\obj\Debug\First3DGodot.pdb
+D:\Projects\Godot\First3DGodot\.godot\mono\temp\obj\Debug\First3DGodot.genruntimeconfig.cache
+D:\Projects\Godot\First3DGodot\.godot\mono\temp\obj\Debug\ref\First3DGodot.dll
