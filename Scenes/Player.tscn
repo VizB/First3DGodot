@@ -4,7 +4,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3ecik"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_dx1x8"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gowcm"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_82n4m")
@@ -16,14 +16,13 @@ shape = SubResource("CapsuleShape3D_3ecik")
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 
-[node name="FirstPersonCam" type="Camera3D" parent="Head"]
+[node name="Camera" type="Camera3D" parent="Head"]
 
 [node name="ThirdPersonCamPos" type="Marker3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.013, 0, 3.277)
 
-[node name="ThirdPersonCam" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.013, 0, 3.277)
+[node name="FirstPersonCamPos" type="Marker3D" parent="Head"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_dx1x8")
+mesh = SubResource("CapsuleMesh_gowcm")

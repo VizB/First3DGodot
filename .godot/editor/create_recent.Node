@@ -1,10 +1,11 @@
-Camera3D
+MeshInstance3D
+CSGCylinder3D
 Marker3D
+Camera3D
 CSGBox3D
 Control
 Marker2D
 TextureRect
-MeshInstance3D
 RichTextLabel
 Label
 Panel
