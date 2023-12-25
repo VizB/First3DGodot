@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using Godot;
 
 namespace First3DGodot.Scripts;
@@ -19,7 +20,9 @@ public partial class Player : CharacterBody3D
     private Marker3D _firstPersonCamPos;
     // Camera
     private Camera3D _camera;
+
     public bool IsFirstPerson = true;
+    
     // Animation
     private AnimationPlayer _animationPlayer;
     
@@ -41,13 +44,14 @@ public partial class Player : CharacterBody3D
         _firstPersonCamPos = GetNode<Marker3D>("Head/FirstPersonCamPos");
 
         _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+        if (IsFirstPerson) _camera.Position = Vector3.Zero;
     }
 
     public override void _Input(InputEvent @event)
     {
         // Early returns for non-mouse events and when the mouse is visible
         if (@event is not InputEventMouseMotion mouseMotion) return;
-        if(Input.MouseMode == Input.MouseModeEnum.Visible) return;
+        if (Input.MouseMode == Input.MouseModeEnum.Visible) return;
         
         // Rotate Head
         RotateY(Mathf.DegToRad(-mouseMotion.Relative.X * MouseSensitivity));
@@ -55,7 +59,7 @@ public partial class Player : CharacterBody3D
         
         // Clamp Head Rotation
         var headRotation = _head.Rotation;
-        headRotation.X = Mathf.Clamp(headRotation.X, Mathf.DegToRad(-89), Mathf.DegToRad(89));
+        headRotation.X = Mathf.Clamp(headRotation.X, Mathf.DegToRad(-90), Mathf.DegToRad(90));
         _head.Rotation = headRotation;
     }
 
@@ -122,7 +126,7 @@ public partial class Player : CharacterBody3D
 
     private void SwitchCameraMode()
     {
-        _animationPlayer.Play(IsFirstPerson ? "CameraSwitchToFirst" : "CameraSwitchToThird");
+        _animationPlayer.Play(IsFirstPerson ? "CameraSwitchToThird" : "CameraSwitchToFirst");
         IsFirstPerson = !IsFirstPerson;
     }
 }
