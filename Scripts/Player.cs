@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 namespace First3DGodot.Scripts;
@@ -16,10 +17,13 @@ public partial class Player : CharacterBody3D
     private Node3D _head;
     private Marker3D _thirdPersonCamPos;
     private Marker3D _firstPersonCamPos;
-    // Cameras
+    // Camera
     private Camera3D _camera;
-    [Export] public bool IsFirstPerson = true;
-     
+    public bool IsFirstPerson = true;
+    // Animation
+    private AnimationPlayer _animationPlayer;
+    
+    
     public override void _Ready()
     {
         Input.MouseMode = Input.MouseModeEnum.Captured;
@@ -35,6 +39,8 @@ public partial class Player : CharacterBody3D
         
         // Marker for the first person camera
         _firstPersonCamPos = GetNode<Marker3D>("Head/FirstPersonCamPos");
+
+        _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
     }
 
     public override void _Input(InputEvent @event)
@@ -55,23 +61,18 @@ public partial class Player : CharacterBody3D
 
     public override void _Process(double delta)
     {
+        // Switch between the different mouse modes.
         if (Input.IsActionJustPressed("escape"))
         {
             Input.MouseMode = Input.MouseMode == Input.MouseModeEnum.Visible
                 ? Input.MouseModeEnum.Captured
                 : Input.MouseModeEnum.Visible;
         }
-
+        
+        // Camera Switch
         if (Input.IsActionJustPressed("changeCam"))
         {
-            if (IsFirstPerson)
-            {
-                _camera.Position = _thirdPersonCamPos.Position;
-            } else
-            {
-                _camera.Position = _firstPersonCamPos.Position;
-            }
-            IsFirstPerson = !IsFirstPerson;
+            SwitchCameraMode();
         }
     }
 
@@ -93,7 +94,7 @@ public partial class Player : CharacterBody3D
 
         var inputDir = Input.GetVector("left", "right", "forward", "backward");
         /*
-        _direction = Mathf.Lerp(_direction, Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y).Normalized(),
+            _direction = Mathf.Lerp(_direction, Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y).Normalized(),
             (float)delta * _lerpSpeed);
         */
         _direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
@@ -117,5 +118,11 @@ public partial class Player : CharacterBody3D
             IDK WHY THIS DOESNT WORK????? ^^^^
         */
         MoveAndSlide();
+    }
+
+    private void SwitchCameraMode()
+    {
+        _animationPlayer.Play(IsFirstPerson ? "CameraSwitchToFirst" : "CameraSwitchToThird");
+        IsFirstPerson = !IsFirstPerson;
     }
 }

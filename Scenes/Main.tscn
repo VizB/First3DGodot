@@ -94,7 +94,6 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_yv7e6")]
 MouseSensitivity = 0.2
-IsFirstPerson = false
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
